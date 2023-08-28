@@ -39,7 +39,9 @@ while True:
 		if (not(song == None or artist == None) and (song != prevsong or artist!=prevartist)):
 			if (args.delay!=0):
 				time.sleep(args.delay)
-			engine.say("Playing " + song + " by " + artist)
+			if (prevsong):
+				engine.say("That was " + prevsong + " by " + prevartist)        
+			engine.say("Now playing " + song + " by " + artist)
 			engine.runAndWait()
 			print("Playing " + song + " by " + artist)
 			prevsong = song
